@@ -1,4 +1,5 @@
 import Navbar from './components/Navabar'
+import Hero from './components/Hero'
 
 
 
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Hero />
 
     </>
   )
