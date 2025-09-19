@@ -1,7 +1,7 @@
 import { Star, Quote } from "lucide-react";
-import styles from "./Testimonials.module.scss";
+import "../Styling/Testimonials.scss"; // ✅ SCSS import
 
-const Testimonials = () => {
+const Testimonials: React.FC = () => {
     const testimonials = [
         {
             name: "Sarah Chen",
@@ -38,34 +38,34 @@ const Testimonials = () => {
     ];
 
     return (
-        <section className={styles.testimonials}>
-            <div className={styles.container}>
+        <section className="testimonials">
+            <div className="testimonials__container">
                 {/* Header */}
-                <div className={styles.header}>
-                    <h2>What Our Clients Say</h2>
-                    <p>
+                <div className="testimonials__header">
+                    <h2 className="testimonials__title">What Our Clients Say</h2>
+                    <p className="testimonials__subtitle">
                         Don't just take our word for it. Here's what business leaders say about
                         our commercial law expertise and commitment to excellence.
                     </p>
                 </div>
 
                 {/* Grid */}
-                <div className={styles.grid}>
+                <div className="testimonials__grid">
                     {testimonials.map((t, i) => (
-                        <div key={i} className={styles.card}>
-                            <div className={styles.top}>
-                                <Quote size={32} color="var(--color-accent-gold)" />
-                                <div className={styles.stars}>
+                        <div key={i} className="testimonials__card">
+                            <div className="testimonials__card-top">
+                                <Quote className="testimonials__quote" size={32} />
+                                <div className="testimonials__stars">
                                     {[...Array(t.rating)].map((_, idx) => (
-                                        <Star key={idx} size={20} />
+                                        <Star key={idx} size={20} className="testimonials__star" />
                                     ))}
                                 </div>
                             </div>
 
-                            <p>"{t.content}"</p>
+                            <p className="testimonials__content">"{t.content}"</p>
 
-                            <div className={styles.author}>
-                                <div className={styles.avatar}>
+                            <div className="testimonials__author">
+                                <div className="testimonials__avatar">
                                     <span>
                                         {t.name
                                             .split(" ")
@@ -73,9 +73,9 @@ const Testimonials = () => {
                                             .join("")}
                                     </span>
                                 </div>
-                                <div className={styles.info}>
-                                    <div className={styles.name}>{t.name}</div>
-                                    <div className={styles.role}>
+                                <div className="testimonials__info">
+                                    <div className="testimonials__name">{t.name}</div>
+                                    <div className="testimonials__role">
                                         {t.role} at {t.company}
                                     </div>
                                 </div>
@@ -85,9 +85,9 @@ const Testimonials = () => {
                 </div>
 
                 {/* Rating Summary */}
-                <div className={styles.ratingSummary}>
-                    <div className={styles.badge}>
-                        <Star size={20} />
+                <div className="testimonials__summary">
+                    <div className="testimonials__badge">
+                        <Star className="testimonials__badge-icon" size={20} />
                         <span>4.9/5 Average Rating from 150+ Reviews</span>
                     </div>
                 </div>
