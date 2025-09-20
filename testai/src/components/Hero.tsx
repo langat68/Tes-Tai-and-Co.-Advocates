@@ -1,5 +1,5 @@
 import { ArrowRight, Award, Users, Briefcase } from "lucide-react";
-import heroImage from "@/assets/hero-law-firm.jpg";
+import heroImage from "../assets/rob-girkin-BWRY6qXMxfU-unsplash.jpg";
 import "../Styling/Hero.scss"; // ✅ SCSS import
 
 const Hero: React.FC = () => {
