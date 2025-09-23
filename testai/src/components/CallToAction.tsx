@@ -1,5 +1,6 @@
+import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import "../Styling/CallToAction.scss"; // ✅ SCSS import
+import "../Styling/CallToAction.scss"; // SCSS import
 
 const CallToAction: React.FC = () => {
     return (
