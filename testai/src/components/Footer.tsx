@@ -1,5 +1,6 @@
 import { Scale, Phone, Mail, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
-import "../Styling/Footer.scss"
+import "../Styling/Footer.scss";
+
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
@@ -22,106 +23,83 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-gray-900 text-gray-200">
-            <div className="max-w-7xl mx-auto px-6 py-16">
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <footer className="footer">
+            <div className="footer-container">
+                <div className="footer-grid">
                     {/* Company Info */}
-                    <div>
-                        <div className="flex items-center space-x-2 mb-6">
-                            <Scale className="h-8 w-8 text-yellow-500" />
-                            <span className="text-2xl font-serif font-bold">Naironi Legal</span>
+                    <div className="footer-company">
+                        <div className="footer-logo">
+                            <Scale className="icon logo-icon" />
+                            <span className="logo-text">Naironi Legal</span>
                         </div>
-                        <p className="text-gray-400 mb-6 leading-relaxed">
+                        <p className="footer-description">
                             Your trusted partner in commercial law, providing expert legal counsel
                             and strategic guidance to businesses of all sizes.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-yellow-500 transition" aria-label="LinkedIn">
-                                <Linkedin className="h-6 w-6" />
+                        <div className="footer-socials">
+                            <a href="#" aria-label="LinkedIn">
+                                <Linkedin className="icon" />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-yellow-500 transition" aria-label="Twitter">
-                                <Twitter className="h-6 w-6" />
+                            <a href="#" aria-label="Twitter">
+                                <Twitter className="icon" />
                             </a>
-                            <a href="#" className="text-gray-400 hover:text-yellow-500 transition" aria-label="Facebook">
-                                <Facebook className="h-6 w-6" />
+                            <a href="#" aria-label="Facebook">
+                                <Facebook className="icon" />
                             </a>
                         </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h3 className="text-lg font-serif font-semibold mb-6">Quick Links</h3>
-                        <ul className="space-y-3">
+                    <div className="footer-section">
+                        <h3 className="footer-title">Quick Links</h3>
+                        <ul>
                             {quickLinks.map((link) => (
                                 <li key={link.label}>
-                                    <a
-                                        href={link.href}
-                                        className="text-gray-400 hover:text-yellow-500 transition"
-                                    >
-                                        {link.label}
-                                    </a>
+                                    <a href={link.href}>{link.label}</a>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
                     {/* Practice Areas */}
-                    <div>
-                        <h3 className="text-lg font-serif font-semibold mb-6">Practice Areas</h3>
-                        <ul className="space-y-3">
+                    <div className="footer-section">
+                        <h3 className="footer-title">Practice Areas</h3>
+                        <ul>
                             {practiceAreas.map((area) => (
                                 <li key={area}>
-                                    <a
-                                        href="#practice-areas"
-                                        className="text-gray-400 hover:text-yellow-500 transition"
-                                    >
-                                        {area}
-                                    </a>
+                                    <a href="#practice-areas">{area}</a>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
                     {/* Contact Info */}
-                    <div>
-                        <h3 className="text-lg font-serif font-semibold mb-6">Contact Info</h3>
-                        <div className="space-y-4">
-                            <div className="flex items-start space-x-3">
-                                <MapPin className="h-5 w-5 text-yellow-500 mt-0.5" />
-                                <div>
-                                    <div className="text-gray-400">
-                                        123 Business District<br />
-                                        New York, NY 10001
-                                    </div>
-                                </div>
+                    <div className="footer-section">
+                        <h3 className="footer-title">Contact Info</h3>
+                        <div className="footer-contact">
+                            <div className="contact-item">
+                                <MapPin className="icon" />
+                                <span>
+                                    123 Business District <br /> New York, NY 10001
+                                </span>
                             </div>
-                            <div className="flex items-center space-x-3">
-                                <Phone className="h-5 w-5 text-yellow-500" />
-                                <a
-                                    href="tel:+15551234567"
-                                    className="text-gray-400 hover:text-yellow-500 transition"
-                                >
-                                    (555) 123-4567
-                                </a>
+                            <div className="contact-item">
+                                <Phone className="icon" />
+                                <a href="tel:+15551234567">(555) 123-4567</a>
                             </div>
-                            <div className="flex items-center space-x-3">
-                                <Mail className="h-5 w-5 text-yellow-500" />
-                                <a
-                                    href="mailto:contact@naironilegal.com"
-                                    className="text-gray-400 hover:text-yellow-500 transition"
-                                >
+                            <div className="contact-item">
+                                <Mail className="icon" />
+                                <a href="mailto:contact@naironilegal.com">
                                     contact@naironilegal.com
                                 </a>
                             </div>
                         </div>
 
-                        <div className="mt-6 p-4 bg-yellow-500/10 rounded-lg border border-yellow-500/20">
-                            <div className="text-sm font-semibold text-yellow-500 mb-1">
-                                Business Hours
-                            </div>
-                            <div className="text-sm text-gray-400">
-                                Monday - Friday: 8:00 AM - 6:00 PM<br />
-                                Saturday: 9:00 AM - 2:00 PM<br />
+                        <div className="footer-hours">
+                            <div className="hours-title">Business Hours</div>
+                            <div className="hours-text">
+                                Monday - Friday: 8:00 AM - 6:00 PM <br />
+                                Saturday: 9:00 AM - 2:00 PM <br />
                                 Sunday: Closed
                             </div>
                         </div>
@@ -129,20 +107,14 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <div className="text-gray-500 text-sm mb-4 md:mb-0">
+                <div className="footer-bottom">
+                    <div className="footer-copy">
                         © {currentYear} Naironi Legal. All rights reserved.
                     </div>
-                    <div className="flex space-x-6 text-sm">
-                        <a href="#privacy" className="text-gray-500 hover:text-yellow-500 transition">
-                            Privacy Policy
-                        </a>
-                        <a href="#terms" className="text-gray-500 hover:text-yellow-500 transition">
-                            Terms of Service
-                        </a>
-                        <a href="#disclaimer" className="text-gray-500 hover:text-yellow-500 transition">
-                            Legal Disclaimer
-                        </a>
+                    <div className="footer-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#disclaimer">Legal Disclaimer</a>
                     </div>
                 </div>
             </div>
