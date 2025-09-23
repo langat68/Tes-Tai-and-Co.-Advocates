@@ -30,7 +30,7 @@ const Footer = () => {
                     <div className="footer-company">
                         <div className="footer-logo">
                             <Scale className="icon logo-icon" />
-                            <span className="logo-text">Naironi Legal</span>
+                            <span className="logo-text">Tes tai Legal</span>
                         </div>
                         <p className="footer-description">
                             Your trusted partner in commercial law, providing expert legal counsel
@@ -80,7 +80,7 @@ const Footer = () => {
                             <div className="contact-item">
                                 <MapPin className="icon" />
                                 <span>
-                                    123 Business District <br /> New York, NY 10001
+                                    123 Business District <br /> Tom Mboya St
                                 </span>
                             </div>
                             <div className="contact-item">
@@ -90,7 +90,7 @@ const Footer = () => {
                             <div className="contact-item">
                                 <Mail className="icon" />
                                 <a href="mailto:contact@naironilegal.com">
-                                    contact@naironilegal.com
+                                    contact@testailegal.com
                                 </a>
                             </div>
                         </div>
@@ -109,7 +109,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="footer-bottom">
                     <div className="footer-copy">
-                        © {currentYear} Naironi Legal. All rights reserved.
+                        © {currentYear} Nairobi Legal. All rights reserved.
                     </div>
                     <div className="footer-links">
                         <a href="#privacy">Privacy Policy</a>

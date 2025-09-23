@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
                     {/* Logo */}
                     <div className="navbar__logo">
                         <Scale className="navbar__logo-icon" />
-                        <span className="navbar__logo-text">Naironi Legal</span>
+                        <span className="navbar__logo-text">Tes Tai Legal</span>
                     </div>
 
                     {/* Desktop Navigation */}

@@ -1,5 +1,8 @@
 import Navbar from './components/Navabar'
 import Hero from './components/Hero'
+import Testimonials from "./components/Testimonials"
+import CallToAction from "./components/CallToAction"
+import Footer from './components/Footer'
 
 
 
@@ -12,6 +15,9 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <Testimonials />
+      <CallToAction />
+      <Footer />
 
     </>
   )

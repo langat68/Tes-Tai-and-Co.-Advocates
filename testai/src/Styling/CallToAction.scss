@@ -1,122 +1,118 @@
-.callToAction {
-    background: #f9fafb;
+.cta {
+    background: var(--background);
     padding: 4rem 1rem;
 
-    .container {
+    &__wrapper {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-        align-items: start;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @media (min-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+        }
     }
 
-    h2 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #111827;
+    &__left {
+        .cta__title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta__text {
+            color: var(--foreground);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
     }
 
-    p {
-        font-size: 1.125rem;
-        color: #374151;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-    }
-
-    .buttons {
+    &__buttons {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+    }
 
-        .primary {
-            background: #1d4ed8;
-            color: #fff;
-            padding: 0.75rem 1.5rem;
+    &__button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &--primary {
+            background: var(--accent-gold);
+            color: var(--accent-gold-foreground);
             border: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
 
             &:hover {
-                background: #1e40af;
+                background: rgba(var(--accent-gold-rgb), 0.9);
             }
         }
 
-        .outline {
+        &--outline {
+            border: 2px solid var(--accent-gold);
             background: transparent;
-            border: 2px solid #1d4ed8;
-            color: #1d4ed8;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            color: var(--accent-gold);
 
             &:hover {
-                background: #eff6ff;
+                background: var(--accent-gold);
+                color: var(--accent-gold-foreground);
             }
         }
     }
 
-    .infoBox {
-        background: #fff;
-        padding: 2rem;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        margin-bottom: 1.5rem;
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 
-        h3 {
+    &__contact {
+        background: var(--muted);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        &-title {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #111827;
-        }
-
-        .contactItem {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            color: #374151;
-
-            svg {
-                color: #1d4ed8;
-                flex-shrink: 0;
-            }
+            color: var(--primary);
         }
     }
 
-    .highlightBox {
-        background: #1d4ed8;
-        color: #fff;
-        padding: 1.5rem;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: var(--foreground);
 
-        h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
+        svg {
+            color: var(--accent-gold);
+        }
+    }
+
+    &__offer {
+        background: var(--accent-gold);
+        color: var(--accent-gold-foreground);
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+
+        &-title {
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        p {
+        &-text {
             font-size: 0.95rem;
-            color: #f3f4f6;
-            margin: 0;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            grid-template-columns: 1fr;
-        }
-
-        h2 {
-            font-size: 1.75rem;
+            line-height: 1.5;
         }
     }
 }

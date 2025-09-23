@@ -1,3 +1,4 @@
+import React from "react";
 import { Star, Quote } from "lucide-react";
 import "../Styling/Testimonials.scss"; // ✅ SCSS import
 
@@ -8,7 +9,7 @@ const Testimonials: React.FC = () => {
             company: "TechFlow Solutions",
             role: "CEO",
             content:
-                "Naironi Legal provided exceptional guidance during our merger. Their expertise in commercial law and attention to detail gave us confidence throughout the entire process.",
+                "Tes tai Legal provided exceptional guidance during our merger. Their expertise in commercial law and attention to detail gave us confidence throughout the entire process.",
             rating: 5,
         },
         {
@@ -16,7 +17,7 @@ const Testimonials: React.FC = () => {
             company: "Global Enterprises",
             role: "General Counsel",
             content:
-                "The team at Naironi Legal has been instrumental in protecting our intellectual property and negotiating complex commercial agreements. Highly recommended.",
+                "The team at Tes tai Legal has been instrumental in protecting our intellectual property and negotiating complex commercial agreements. Highly recommended.",
             rating: 5,
         },
         {
@@ -24,7 +25,7 @@ const Testimonials: React.FC = () => {
             company: "Innovative Startups",
             role: "Founder",
             content:
-                "From startup incorporation to scaling our business, Naironi Legal has been our trusted partner. Their strategic advice has been invaluable to our growth.",
+                "From startup incorporation to scaling our business, Tes tai Legal has been our trusted partner. Their strategic advice has been invaluable to our growth.",
             rating: 5,
         },
         {
@@ -32,7 +33,7 @@ const Testimonials: React.FC = () => {
             company: "Manufacturing Corp",
             role: "President",
             content:
-                "When we faced a complex commercial dispute, Naironi Legal's expertise and dedication resulted in a favorable outcome. Their professionalism is unmatched.",
+                "When we faced a complex commercial dispute, Tes tai Legal's expertise and dedication resulted in a favorable outcome. Their professionalism is unmatched.",
             rating: 5,
         },
     ];

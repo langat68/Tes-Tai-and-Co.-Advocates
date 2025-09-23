@@ -1,165 +1,328 @@
-.footer {
-    background: #111827;
-    color: #e5e7eb;
-    padding: 4rem 1rem 2rem;
+// Variables
+$primary-color: #1a365d;
+$secondary-color: #2d5a87;
+$accent-color: #4a90c2;
+$text-primary: #ffffff;
+$text-secondary: #e2e8f0;
+$text-muted: #a0aec0;
+$border-color: #4a5568;
+$hover-color: #63b3ed;
+$gradient-start: #1a365d;
+$gradient-end: #2c5282;
 
-    .container {
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin transition($properties: all, $duration: 0.3s, $easing: ease) {
+    transition: $properties $duration $easing;
+}
+
+@mixin hover-effect {
+    @include transition(color, 0.2s, ease);
+
+    &:hover {
+        color: $hover-color;
+        transform: translateY(-1px);
+    }
+}
+
+// Responsive breakpoints
+$breakpoints: (
+    mobile: 480px,
+    tablet: 768px,
+    desktop: 1024px,
+    large: 1200px
+);
+
+@mixin responsive($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+// Footer Styles
+.footer {
+    background: linear-gradient(135deg, $gradient-start 0%, $gradient-end 100%);
+    color: $text-primary;
+    padding: 4rem 0 2rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, $accent-color, transparent);
+    }
+
+    // Container
+    .footer-container {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 2rem;
+
+        @include responsive(tablet) {
+            padding: 0 1rem;
+        }
     }
 
-    .grid {
+    // Main Grid
+    .footer-grid {
         display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
 
-    /* Company Info */
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-
-        svg {
-            color: #facc15;
+        @include responsive(desktop) {
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
         }
 
-        span {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: serif;
+        @include responsive(tablet) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
     }
 
-    .description {
-        color: #9ca3af;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
+    // Company Section
+    .footer-company {
+        .footer-logo {
+            @include flex-center;
+            margin-bottom: 1.5rem;
 
-    .socials {
-        display: flex;
-        gap: 1rem;
-
-        a {
-            color: #9ca3af;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: #facc15;
+            .logo-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: $accent-color;
+                margin-right: 0.75rem;
             }
 
-            svg {
-                width: 1.5rem;
-                height: 1.5rem;
+            .logo-text {
+                font-size: 1.75rem;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+                color: $text-primary;
             }
         }
-    }
 
-    /* Links */
-    h3 {
-        font-size: 1.125rem;
-        font-family: serif;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        color: #f9fafb;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            margin-bottom: 0.75rem;
-
-            a {
-                color: #9ca3af;
-                text-decoration: none;
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: #facc15;
-                }
-            }
-        }
-    }
-
-    /* Contact Info */
-    .contactItem {
-        display: flex;
-        align-items: flex-start;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-
-        svg {
-            color: #facc15;
-            flex-shrink: 0;
-            margin-top: 0.25rem;
+        .footer-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: $text-secondary;
+            margin-bottom: 2rem;
+            max-width: 280px;
         }
 
-        a,
-        div {
-            color: #9ca3af;
-            transition: color 0.3s ease;
-
-            &:hover {
-                color: #facc15;
-            }
-        }
-    }
-
-    .hours {
-        margin-top: 1.5rem;
-        padding: 1rem;
-        background: rgba(250, 204, 21, 0.1);
-        border: 1px solid rgba(250, 204, 21, 0.2);
-        border-radius: 0.5rem;
-
-        .title {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #facc15;
-            margin-bottom: 0.25rem;
-        }
-
-        .text {
-            font-size: 0.875rem;
-            color: #9ca3af;
-        }
-    }
-
-    /* Bottom Bar */
-    .bottom {
-        border-top: 1px solid #374151;
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        font-size: 0.875rem;
-        color: #6b7280;
-
-        @media (min-width: 768px) {
-            flex-direction: row;
-            justify-content: space-between;
-            text-align: left;
-        }
-
-        .links {
+        .footer-socials {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
+            gap: 1rem;
 
             a {
-                color: #6b7280;
-                transition: color 0.3s ease;
+                @include flex-center;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                color: $text-secondary;
+                text-decoration: none;
+                @include transition();
+                backdrop-filter: blur(10px);
 
                 &:hover {
-                    color: #facc15;
+                    background: $accent-color;
+                    color: $text-primary;
+                    transform: translateY(-2px) scale(1.05);
+                }
+
+                .icon {
+                    width: 1.25rem;
+                    height: 1.25rem;
                 }
             }
         }
+    }
+
+    // Section Styling
+    .footer-section {
+        .footer-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 1.5rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -0.5rem;
+                left: 0;
+                width: 2rem;
+                height: 2px;
+                background: $accent-color;
+                border-radius: 1px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 0.75rem;
+
+                a {
+                    color: $text-secondary;
+                    text-decoration: none;
+                    font-size: 0.95rem;
+                    @include hover-effect;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    // Contact Section
+    .footer-contact {
+        margin-bottom: 2rem;
+
+        .contact-item {
+            @include flex-center;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+
+            .icon {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: $accent-color;
+                margin-right: 0.75rem;
+                margin-top: 0.125rem;
+                flex-shrink: 0;
+            }
+
+            span,
+            a {
+                color: $text-secondary;
+                text-decoration: none;
+                font-size: 0.95rem;
+                line-height: 1.5;
+
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+        }
+    }
+
+    .footer-hours {
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+
+        .hours-title {
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .hours-text {
+            color: $text-secondary;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+    }
+
+    // Bottom Bar
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        border-top: 1px solid $border-color;
+
+        @include responsive(tablet) {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .footer-copy {
+            color: $text-muted;
+            font-size: 0.875rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+
+            @include responsive(mobile) {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            a {
+                color: $text-muted;
+                text-decoration: none;
+                font-size: 0.875rem;
+                @include hover-effect;
+            }
+        }
+    }
+
+    // Icon Styling
+    .icon {
+        flex-shrink: 0;
+    }
+}
+
+// Dark theme support
+@media (prefers-color-scheme: dark) {
+    .footer {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+}
+
+// Print styles
+@media print {
+    .footer {
+        background: none !important;
+        color: #000 !important;
+
+        .footer-socials {
+            display: none;
+        }
+    }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+    .footer {
+
+        .footer-company .logo-icon,
+        .contact-item .icon {
+            color: #ffffff;
+        }
+
+        .footer-socials a:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+    }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+    .footer * {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
     }
 }
